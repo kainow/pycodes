@@ -17,19 +17,19 @@ grouped_CID = online_retail_df.groupby("CustomerID")
 
 
 
-# xに顧客の人数を代入してください
+# xに顧客の人数を代入
 x = len(grouped_CID)
 
-# yに顧客ごとの売り上げの累積和をリスト型で代入してください
+# yに顧客ごとの売り上げの累積和をリスト型で代入
 y = grouped_CID.sum().loc[:, "TotalPrice"].sort_values().tolist()
 
-# 以下、可視化の作業です
+# 以下、可視化の作業
 
-# 累積和の最後の項が1になるようにします
+# 累積和の最後の項が1になるよう
 x = np.arange(x) / x
 y = np.array(y) / y[len(y)-1]
 
-# グラフの要素に名前をつけます
+# グラフの要素に名前
 plt.title("Distribution of earings")
 plt.xlabel("Cumulative sum of customers")
 plt.ylabel("Cumulative sum of earings")
