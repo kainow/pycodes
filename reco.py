@@ -1,6 +1,6 @@
 import sqlite3
 
-# 空欄を埋めてsearcher関数を完成させてください。
+
 class searcher:
     def __init__(self,dbname):
         self.conn = sqlite3.connect(dbname)
@@ -53,7 +53,7 @@ class searcher:
             minscore = min(scores.values())
             return dict([(url,float(minscore)/max(vsmall,l)) for (url,l) in scores.items()])
         else:
-            # 値が大きいほうが１となる正規化関数を完成させてください。
+            # 値が大きいほうが１となる正規化関数を完成。
             maxscore = max(scores.values())
             if maxscore == 0:
                 maxscore = vsmall
@@ -94,7 +94,7 @@ class searcher:
     def weightlist(self,rows):
         totalscores = dict([(row[0],0) for row in rows])
         # 評価関数を設定してください。
-        # 評価関数の重みは、frequeryscore : 1 , locationscore : 2 , distancescore : 2 ,pagerankscore :3 としてください。
+        # 評価関数の重みは、frequeryscore : 1 , locationscore : 2 , distancescore : 2 ,pagerankscore :3 
         weights = [(1.0, self.frequeryscore(rows))
                     ,(2.0, self.locationscore(rows))
                     ,(2.0, self.distancescore(rows))
@@ -118,7 +118,7 @@ class searcher:
             recommend_list.append((url,score))
         return recommend_list
 
-# program studyで検索してください。
+# program studyで検索
 dbname = "webpage.db"
 s = searcher(dbname)
 query = "program study"
