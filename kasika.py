@@ -33,8 +33,6 @@ for i in range(0, N):
         plt.scatter(score_x, score_y, color = "b")
 
 
-
-
 # piの近似値をここで計算
 pi = 4 * X / N
 # モンテカルロ法の実行時間を計算
